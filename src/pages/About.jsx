@@ -44,38 +44,21 @@ function About() {
             "0 8px 25px rgba(0,0,0,0.12)";
         }}
       >
-        <h2
-          style={{
-            color: "#4a6cf7",
-            marginBottom: "15px",
-          }}
-        >
+        <h2 style={{ color: "#4a6cf7", marginBottom: "15px" }}>
           🛍️ Welcome to ShopEase
         </h2>
 
-        <p
-          style={{
-            color: "#555",
-            lineHeight: "1.9",
-            fontSize: "17px",
-          }}
-        >
-         "ShopEase is a modern and stylish e-commerce platform 
-         where you can easily explore fashion, shoes, bags, watches, and electronics products."
+        <p style={{ color: "#555", lineHeight: "1.9", fontSize: "17px" }}>
+          "ShopEase is a modern and stylish e-commerce platform where you can easily explore fashion, shoes, bags, watches, and electronics products."
         </p>
 
-        <p
-          style={{
-            color: "#555",
-            lineHeight: "1.9",
-            fontSize: "17px",
-          }}
-        >
+        <p style={{ color: "#555", lineHeight: "1.9", fontSize: "17px" }}>
           "Our mission is to deliver a seamless, fast, and enjoyable online shopping experience. We enhance customer satisfaction by offering high-quality products combined with an attractive and user-friendly design."
         </p>
 
         {/* Feature Cards */}
         <div
+          className="feature-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
@@ -90,17 +73,6 @@ function About() {
               borderRadius: "15px",
               transition: "all 0.3s ease",
               cursor: "pointer",
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(-10px) scale(1.05)";
-              e.currentTarget.style.boxShadow =
-                "0 10px 20px rgba(255,77,109,0.3)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(0) scale(1)";
-              e.currentTarget.style.boxShadow = "none";
             }}
           >
             <h3 style={{ color: "#ff4d6d" }}>🚀 Fast Delivery</h3>
@@ -117,17 +89,6 @@ function About() {
               transition: "all 0.3s ease",
               cursor: "pointer",
             }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(-10px) scale(1.05)";
-              e.currentTarget.style.boxShadow =
-                "0 10px 20px rgba(74,108,247,0.3)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(0) scale(1)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
           >
             <h3 style={{ color: "#4a6cf7" }}>💙 Modern Design</h3>
             <p style={{ color: "#555" }}>
@@ -143,17 +104,6 @@ function About() {
               transition: "all 0.3s ease",
               cursor: "pointer",
             }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(-10px) scale(1.05)";
-              e.currentTarget.style.boxShadow =
-                "0 10px 20px rgba(255,77,109,0.3)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform =
-                "translateY(0) scale(1)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
           >
             <h3 style={{ color: "#ff4d6d" }}>🛍️ Easy Shopping</h3>
             <p style={{ color: "#555" }}>
@@ -164,6 +114,7 @@ function About() {
 
         {/* Stats */}
         <div
+          className="stats"
           style={{
             display: "flex",
             justifyContent: "center",
@@ -178,17 +129,6 @@ function About() {
               color: "white",
               padding: "15px 25px",
               borderRadius: "15px",
-              transition: "all 0.3s ease",
-              cursor: "pointer",
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = "scale(1.12)";
-              e.currentTarget.style.boxShadow =
-                "0 12px 25px rgba(74,108,247,0.4)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "none";
             }}
           >
             <h2>500+</h2>
@@ -201,17 +141,6 @@ function About() {
               color: "white",
               padding: "15px 25px",
               borderRadius: "15px",
-              transition: "all 0.3s ease",
-              cursor: "pointer",
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = "scale(1.12)";
-              e.currentTarget.style.boxShadow =
-                "0 12px 25px rgba(255,77,109,0.4)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "none";
             }}
           >
             <h2>1000+</h2>
@@ -224,17 +153,6 @@ function About() {
               color: "white",
               padding: "15px 25px",
               borderRadius: "15px",
-              transition: "all 0.3s ease",
-              cursor: "pointer",
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = "scale(1.12)";
-              e.currentTarget.style.boxShadow =
-                "0 12px 25px rgba(0,198,255,0.4)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "none";
             }}
           >
             <h2>24/7</h2>
@@ -243,7 +161,7 @@ function About() {
         </div>
       </div>
 
-      {/* Animation */}
+      {/* Animation + Responsive CSS */}
       <style>
         {`
           @keyframes fadeIn {
@@ -254,6 +172,32 @@ function About() {
             to {
               opacity: 1;
               transform: translateY(0);
+            }
+          }
+
+          /* MOBILE RESPONSIVE */
+          @media (max-width: 768px) {
+
+            h1 {
+              font-size: 26px !important;
+            }
+
+            h2 {
+              font-size: 20px !important;
+            }
+
+            .stats {
+              flex-direction: column !important;
+              align-items: center;
+            }
+
+            .stats > div {
+              width: 85% !important;
+              text-align: center;
+            }
+
+            .feature-grid {
+              grid-template-columns: 1fr !important;
             }
           }
         `}

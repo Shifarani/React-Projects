@@ -5,26 +5,30 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const { cartItems } = useContext(CartContext);
 
+  const isMobile = window.innerWidth < 768;
+
   const styles = {
     navbar: {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: "15px 40px",
+      padding: isMobile ? "10px 15px" : "15px 40px",
       background: "linear-gradient(90deg, #f8a4cb, #ffd1e8)",
       color: "#0e0d0d",
       position: "sticky",
       top: 0,
       zIndex: 1000,
+      flexWrap: "wrap",
+      gap: "10px",
     },
 
     logo: {
-      fontSize: "28px",
+      fontSize: isMobile ? "20px" : "28px",
       fontWeight: "900",
       cursor: "pointer",
       display: "flex",
       alignItems: "center",
-      gap: "10px",
+      gap: "8px",
       fontFamily: "Poppins, Arial, sans-serif",
       letterSpacing: "1px",
       background: "linear-gradient(45deg, #4a6cf7, #ff4d6d)",
@@ -35,15 +39,18 @@ function Navbar() {
     links: {
       display: "flex",
       listStyle: "none",
-      gap: "28px",
+      gap: isMobile ? "10px" : "28px",
       margin: 0,
       padding: 0,
       fontWeight: "500",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      width: isMobile ? "100%" : "auto",
     },
 
     linkItem: {
       cursor: "pointer",
-      fontSize: "16px",
+      fontSize: isMobile ? "13px" : "16px",
       transition: "0.3s",
       textDecoration: "none",
       color: "inherit",
@@ -51,7 +58,7 @@ function Navbar() {
 
     cart: {
       background: "#4a6cf7",
-      padding: "8px 14px",
+      padding: isMobile ? "6px 10px" : "8px 14px",
       borderRadius: "25px",
       fontWeight: "bold",
       display: "flex",
@@ -60,14 +67,15 @@ function Navbar() {
       cursor: "pointer",
       color: "white",
       boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+      fontSize: isMobile ? "12px" : "14px",
     },
 
     cartCount: {
       background: "#fff",
       color: "#ff4d6d",
-      padding: "2px 8px",
+      padding: "2px 7px",
       borderRadius: "50%",
-      fontSize: "14px",
+      fontSize: "12px",
       fontWeight: "bold",
     },
   };
@@ -75,41 +83,22 @@ function Navbar() {
   return (
     <nav style={styles.navbar}>
       
-      {/* Logo → Home */}
+      {/* Logo */}
       <Link to="/" style={{ textDecoration: "none" }}>
         <div style={styles.logo}>🛍️ ShopEase</div>
       </Link>
 
       {/* Links */}
       <ul style={styles.links}>
-        <li>
-          <Link to="/" style={styles.linkItem}>Home</Link>
-        </li>
-
-        <li>
-          <Link to="/products" style={styles.linkItem}>Products</Link>
-        </li>
-
-        <li>
-          <Link to="/categories" style={styles.linkItem}>Categories</Link>
-        </li>
-
-        <li>
-          <Link to="/about" style={styles.linkItem}>About</Link>
-        </li>
-
-        <li>
-          <Link to="/contact" style={styles.linkItem}>Contact</Link>
-        </li>
+        <li><Link to="/" style={styles.linkItem}>Home</Link></li>
+        <li><Link to="/products" style={styles.linkItem}>Products</Link></li>
+        <li><Link to="/categories" style={styles.linkItem}>Categories</Link></li>
+        <li><Link to="/about" style={styles.linkItem}>About</Link></li>
+        <li><Link to="/contact" style={styles.linkItem}>Contact</Link></li>
       </ul>
 
       {/* Cart */}
-      <Link
-        to="/cart"
-        style={{
-          textDecoration: "none",
-        }}
-      >
+      <Link to="/cart" style={{ textDecoration: "none" }}>
         <div style={styles.cart}>
           🛒 Cart
           <span style={styles.cartCount}>{cartItems.length}</span>

@@ -7,7 +7,6 @@ function Categories() {
     { name: "📱 Electronics", color: "#4a6cf7" },
     { name: "💄 Beauty", color: "#ff4d6d" },
 
-    // New Categories
     { name: "👗 Dresses", color: "#ff69b4" },
     { name: "🧥 Jackets", color: "#4a6cf7" },
     { name: "👖 Jeans", color: "#00c6ff" },
@@ -58,6 +57,7 @@ function Categories() {
 
       {/* CATEGORY GRID */}
       <div
+        className="category-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
@@ -84,12 +84,14 @@ function Categories() {
               (e.currentTarget.style.transform = "scale(1)")
             }
           >
-            <h2 style={{ color: cat.color }}>{cat.name}</h2>
+            <h2 style={{ color: cat.color, fontSize: "18px" }}>
+              {cat.name}
+            </h2>
           </div>
         ))}
       </div>
 
-      {/* ANIMATION */}
+      {/* ANIMATION + RESPONSIVE */}
       <style>
         {`
           @keyframes fadeIn {
@@ -100,6 +102,34 @@ function Categories() {
             to {
               opacity: 1;
               transform: translateY(0);
+            }
+          }
+
+          /* 📱 MOBILE RESPONSIVE */
+          @media (max-width: 768px) {
+
+            h1 {
+              font-size: 24px !important;
+            }
+
+            .category-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 12px !important;
+            }
+
+            .category-grid div {
+              padding: 12px !important;
+            }
+
+            .category-grid h2 {
+              font-size: 14px !important;
+            }
+          }
+
+          @media (max-width: 480px) {
+
+            .category-grid {
+              grid-template-columns: 1fr !important;
             }
           }
         `}

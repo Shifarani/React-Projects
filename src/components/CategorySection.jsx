@@ -13,20 +13,33 @@ function CategorySection() {
       style={{
         display: "flex",
         justifyContent: "center",
-        gap: "15px",
+        alignItems: "center",
+        gap: "12px",
         flexWrap: "wrap",
-        padding: "30px",
+        padding: "20px 10px",
       }}
     >
       {categories.map((category) => (
         <button
           key={category}
           style={{
-            padding: "12px 25px",
-            border: "none",
+            padding: window.innerWidth < 480 ? "8px 14px" : "10px 20px",
+            border: "1px solid #ddd",
             borderRadius: "25px",
             cursor: "pointer",
-            fontWeight: "bold",
+            fontWeight: "600",
+            fontSize: window.innerWidth < 480 ? "12px" : "14px",
+            background: "#fff",
+            transition: "0.3s",
+            whiteSpace: "nowrap",
+          }}
+          onMouseOver={(e) => {
+            e.target.style.background = "#000";
+            e.target.style.color = "#fff";
+          }}
+          onMouseOut={(e) => {
+            e.target.style.background = "#fff";
+            e.target.style.color = "#000";
           }}
         >
           {category}

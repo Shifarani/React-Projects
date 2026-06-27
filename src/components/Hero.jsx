@@ -70,7 +70,8 @@ function Hero() {
             e.target.style.transform = "scale(1)";
           }}
         >
-          Shop Now ✨        </button>
+          Shop Now ✨        
+          </button>
       </div>
 
       <style>

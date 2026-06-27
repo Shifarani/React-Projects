@@ -35,7 +35,14 @@ function Cart() {
       ) : (
         <>
           {/* CART ITEMS */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+          <div
+            className="cart-items"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "15px",
+            }}
+          >
             {cartItems.map((item, index) => (
               <div
                 key={index}
@@ -50,8 +57,12 @@ function Cart() {
                   transform: "scale(1)",
                   transition: "0.3s",
                 }}
-                onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
-                onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style.transform = "scale(1.02)")
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style.transform = "scale(1)")
+                }
               >
                 {/* ITEM INFO */}
                 <div>
@@ -75,12 +86,6 @@ function Cart() {
                     cursor: "pointer",
                     transition: "0.3s",
                   }}
-                  onMouseOver={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.1)")
-                  }
-                  onMouseOut={(e) =>
-                    (e.currentTarget.style.transform = "scale(1)")
-                  }
                 >
                   Remove
                 </button>
@@ -90,6 +95,7 @@ function Cart() {
 
           {/* TOTAL BOX */}
           <div
+            className="cart-total"
             style={{
               marginTop: "25px",
               padding: "20px",
@@ -114,14 +120,7 @@ function Cart() {
                 borderRadius: "25px",
                 cursor: "pointer",
                 fontWeight: "bold",
-                transition: "0.3s",
               }}
-              onMouseOver={(e) =>
-                (e.currentTarget.style.transform = "scale(1.1)")
-              }
-              onMouseOut={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
             >
               Clear Cart 💙
             </button>
@@ -129,12 +128,34 @@ function Cart() {
         </>
       )}
 
-      {/* ANIMATION STYLE */}
+      {/* ANIMATION + RESPONSIVE */}
       <style>
         {`
           @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
+          }
+
+          /* 📱 MOBILE RESPONSIVE */
+          @media (max-width: 768px) {
+
+            h2 {
+              font-size: 24px !important;
+            }
+
+            .cart-items div {
+              flex-direction: column !important;
+              align-items: flex-start !important;
+              gap: 10px;
+            }
+
+            .cart-total {
+              padding: 15px !important;
+            }
+
+            button {
+              width: 100%;
+            }
           }
         `}
       </style>

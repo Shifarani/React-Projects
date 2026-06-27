@@ -23,6 +23,7 @@ function Contact() {
 
       {/* Contact Card */}
       <div
+        className="contact-card"
         style={{
           maxWidth: "900px",
           margin: "auto",
@@ -50,11 +51,12 @@ function Contact() {
             marginBottom: "30px",
           }}
         >
-          If you have any questions, suggestions, or feedback, please don't hesitate to contact us. Our team is always available and ready to assist you.
+          If you have any questions, suggestions, or feedback, please don't hesitate to contact us.
         </p>
 
         {/* Contact Info */}
         <div
+          className="contact-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
@@ -96,8 +98,7 @@ function Contact() {
           >
             <h3 style={{ color: "#ff4d6d" }}>📍 Address</h3>
             <p style={{ color: "#555" }}>
-              ShopEase Headquarters,
-              <br />
+              ShopEase Headquarters,<br />
               New Delhi, India
             </p>
           </div>
@@ -105,69 +106,24 @@ function Contact() {
 
         {/* Contact Form */}
         <form
+          className="contact-form"
           style={{
             display: "flex",
             flexDirection: "column",
             gap: "15px",
           }}
         >
-          <input
-            type="text"
-            placeholder="Your Name"
-            style={{
-              padding: "14px",
-              borderRadius: "10px",
-              border: "2px solid #a0e7ff",
-              outline: "none",
-              fontSize: "16px",
-            }}
-          />
+          <input type="text" placeholder="Your Name" />
+          <input type="email" placeholder="Your Email" />
+          <textarea rows="5" placeholder="Your Message"></textarea>
 
-          <input
-            type="email"
-            placeholder="Your Email"
-            style={{
-              padding: "14px",
-              borderRadius: "10px",
-              border: "2px solid #ffd1e8",
-              outline: "none",
-              fontSize: "16px",
-            }}
-          />
-
-          <textarea
-            rows="5"
-            placeholder="Your Message"
-            style={{
-              padding: "14px",
-              borderRadius: "10px",
-              border: "2px solid #a0e7ff",
-              outline: "none",
-              resize: "none",
-              fontSize: "16px",
-            }}
-          ></textarea>
-
-          <button
-            type="submit"
-            style={{
-              background: "linear-gradient(90deg, #ff4d6d, #4a6cf7)",
-              color: "white",
-              border: "none",
-              padding: "14px",
-              borderRadius: "10px",
-              fontSize: "16px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              transition: "0.3s",
-            }}
-          >
+          <button type="submit">
             Send Message 🚀
           </button>
         </form>
       </div>
 
-      {/* Animation */}
+      {/* ANIMATION + RESPONSIVE */}
       <style>
         {`
           @keyframes fadeIn {
@@ -178,6 +134,34 @@ function Contact() {
             to {
               opacity: 1;
               transform: translateY(0);
+            }
+          }
+
+          /* 📱 MOBILE RESPONSIVE */
+          @media (max-width: 768px) {
+
+            h1 {
+              font-size: 26px !important;
+            }
+
+            .contact-card {
+              padding: 20px !important;
+              border-radius: 15px !important;
+            }
+
+            .contact-grid {
+              grid-template-columns: 1fr !important;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+              font-size: 14px !important;
+              padding: 12px !important;
+            }
+
+            .contact-form button {
+              padding: 12px !important;
+              font-size: 15px !important;
             }
           }
         `}
